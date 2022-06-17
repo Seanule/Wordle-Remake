@@ -191,6 +191,7 @@ h5.scoringText {
     justify-content: center;
     align-items: center;
     text-align: center;
+    color: black;
 }
 
 .kbButtonLarge {
@@ -205,4 +206,5 @@ h5.scoringText {
     justify-content: center;
     align-items: center;
     text-align: center;
+    color: black;
 }
