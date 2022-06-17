@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Wordle Attempt</title>
+	<link rel="stylesheet" type="text/css"
+    media="screen and (min-device-width: 481px)"
+    href="main_Style.css" />
+    <link rel="stylesheet" type="text/css"
+    media="screen and (max-device-width: 480px)"
+    href="mobile_Style.css" />
+	<script type="text/javascript" src="main.js" defer></script>
+</head>
+
+<div id="header">
+    <h1 id="gameName" class="titleText">Wordle Remake</h1>
+</div> 
+
+              <!-- Writing so that there are 5 letters within each guess -->
+<body>
+    
+    <div id="game">
+        
+
+        <div name="r1" id="row1">
+            <div class="rowStyle">
+                <input type="text" id="box00" class="innerGuess" value="">
+                <input type="text" id="box01" class="innerGuess" value="">
+                <input type="text" id="box02" class="innerGuess" value="">
+                <input type="text" id="box03" class="innerGuess" value="">
+                <input type="text" id="box04" class="innerGuess" value="">
+            </div>
+        </div>
+        <div name="r2" id="row2">
+            <div class="rowStyle">
+                <input type="text" id="box10" class="innerGuess" value="">
+                <input type="text" id="box11" class="innerGuess" value="">
+                <input type="text" id="box12" class="innerGuess" value="">
+                <input type="text" id="box13" class="innerGuess" value="">
+                <input type="text" id="box14" class="innerGuess"value="">
+            </div>
+        </div>
+        <div name="r3" id="row3">
+            <div class="rowStyle">
+                <input type="text" id="box20" class="innerGuess" value="">
+                <input type="text" id="box21" class="innerGuess" value="">
+                <input type="text" id="box22" class="innerGuess" value="">
+                <input type="text" id="box23" class="innerGuess" value="">
+                <input type="text" id="box24" class="innerGuess"value="">
+            </div>
+        </div>
+        <div name="r4" id="row4">
+            <div class="rowStyle">
+                <input type="text" id="box30" class="innerGuess" value="">
+                <input type="text" id="box31" class="innerGuess" value="">
+                <input type="text" id="box32" class="innerGuess" value="">
+                <input type="text" id="box33" class="innerGuess" value="">
+                <input type="text" id="box34" class="innerGuess"value="">
+            </div>
+        </div>
+        <div name="r5" id="row5">
+            <div class="rowStyle">
+                <input type="text" id="box40" class="innerGuess" value="">
+                <input type="text" id="box41" class="innerGuess" value="">
+                <input type="text" id="box42" class="innerGuess" value="">
+                <input type="text" id="box43" class="innerGuess" value="">
+                <input type="text" id="box44" class="innerGuess" value="">
+            </div>
+        </div>
+        <div name="r6" id="row6">
+            <div class="rowStyle">
+                <input type="text" id="box50" class="innerGuess" value="">
+                <input type="text" id="box51" class="innerGuess" value="">
+                <input type="text" id="box52" class="innerGuess" value="">
+                <input type="text" id="box53" class="innerGuess" value="">
+                <input type="text" id="box54" class="innerGuess" value="">
+            </div>
+        </div>
+    </div>
+
+
+    <div id="virtualKeyboard">
+        <div id="row1KB" class="kbRow">
+            <button class="kbButton" onclick="inputKey('q')">Q</button>
+            <button class="kbButton" onclick="inputKey('w')">W</button>
+            <button class="kbButton" onclick="inputKey('e')">E</button>
+            <button class="kbButton" onclick="inputKey('r')">R</button>
+            <button class="kbButton" onclick="inputKey('t')">T</button>
+            <button class="kbButton" onclick="inputKey('y')">Y</button>
+            <button class="kbButton" onclick="inputKey('u')">U</button>
+            <button class="kbButton" onclick="inputKey('i')">I</button>
+            <button class="kbButton" onclick="inputKey('o')">O</button>
+            <button class="kbButton" onclick="inputKey('p')">P</button>
+        </div>
+        <div id="row2KB" class="kbRow">
+            <button class="kbButton" onclick="inputKey('a')">A</button>
+            <button class="kbButton" onclick="inputKey('s')">S</button>
+            <button class="kbButton" onclick="inputKey('d')">D</button>
+            <button class="kbButton" onclick="inputKey('f')">F</button>
+            <button class="kbButton" onclick="inputKey('g')">G</button>
+            <button class="kbButton" onclick="inputKey('h')">H</button>
+            <button class="kbButton" onclick="inputKey('j')">J</button>
+            <button class="kbButton" onclick="inputKey('k')">K</button>
+            <button class="kbButton" onclick="inputKey('l')">L</button>
+        </div>
+        <div id="row3KB" class="kbRow">
+            <button class="kbButtonLarge" onclick="inputKey('Enter')">ENTER</button>
+            <button class="kbButton" onclick="inputKey('z')">Z</button>
+            <button class="kbButton" onclick="inputKey('x')">X</button>
+            <button class="kbButton" onclick="inputKey('c')">C</button>
+            <button class="kbButton" onclick="inputKey('v')">V</button>
+            <button class="kbButton" onclick="inputKey('b')">B</button>
+            <button class="kbButton" onclick="inputKey('n')">N</button>
+            <button class="kbButton" onclick="inputKey('m')">M</button>
+            <button class="kbButtonLarge"  onclick="inputKey('Backspace')">&#x2190;</button>
+        </div>
+    </div>
+
+    <div id="gameInfo">
+       <!-- <button id="openModal" onclick="modalAdjust('o')">open modal</button> -->
+    </div>
+    <div class="modal-container" id="modal-container">
+        <div class="modal">
+            <h2 id="endGameStatus" class="modalInfo">Game Over</h2>
+            <h3 id="endGameInfo" class="modalInfo"></h3>
+            <h5 id="endGameWord">The word was: </h5>
+            <button id="closeModal" onclick="location.reload()">Play Again</button>
+            <br><br><br>
+            <div class="scoringContainer">
+                <div id="winContainer">
+                    <h5 class="scoringText">Wins:</h5>
+                   <h6 id="winBox" class="scoringBox">0</h6>
+                </div>
+                <div id="lossContainer">
+                    <h5 class="scoringText">Losses:</h5>
+                    <h6 id="lossBox" class="scoringBox">0</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+    
+</html>
